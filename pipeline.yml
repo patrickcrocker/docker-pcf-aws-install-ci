@@ -1,0 +1,22 @@
+---
+jobs:
+- name: build
+  plan:
+  - get: pcf-aws-install-ci
+    trigger: true
+  - put: pcf-aws-install-ci-image
+    params: {build: pcf-aws-install-ci}
+
+resources:
+- name: pcf-aws-install-ci
+  type: git
+  source:
+    uri: {{git-uri}}
+    branch: {{git-branch}}
+
+- name: pcf-aws-install-ci-image
+  type: docker-image
+  source:
+    repository: {{docker-repository}}
+    username: {{docker-username}}
+    password: {{docker-password}}
