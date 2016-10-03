@@ -19,5 +19,8 @@ RUN apk add musl-dev gcc make g++
 RUN gem install cf-uaac -v 3.4.0 --no-rdoc --no-ri
 RUN gem install json --no-rdoc --no-ri
 
+# Install bosh cli
+RUN gem install bosh_cli --no-ri --no-rdoc
+
 # Clean apk cache
 RUN rm -rf /var/cache/apk/*
