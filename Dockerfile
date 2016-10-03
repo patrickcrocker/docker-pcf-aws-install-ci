@@ -3,7 +3,7 @@ FROM alpine:3.4
 # Install base packages
 RUN apk update
 RUN apk upgrade
-RUN apk add bash curl wget tar jq
+RUN apk add bash curl wget tar jq openssh
 
 # Install python
 RUN apk add py-pip
